@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Planet Benjamin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+
+        <div id="loader">
+            loading...
+        </div>
+
+        <div id="header">Planet Benjamin</div>
+        
+        <div id="space-content"></div>
+
+        <div id="footer"></div>
+
+        <div id="player">
+            <button onclick="document.getElementById('player-audio').play(); document.body.classList.add('nightmare-mode'); this.remove();">press for free candy</button>
+            <audio id="player-audio" loop="yes">
+                <source src="/depravity.wav" type="audio/wav">
+                die
+            </audio>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+
+        <script type="module" src="/main.js"></script>
+
+    </body>
+</html>

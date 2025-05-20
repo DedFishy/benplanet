@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    width: 100dvw;
+    height: 100dvh;
+    font-family: Papyrus, sans-serif;
+    transition: 10s;
+    background-color: black;
+    overflow: hidden;
+}
+
+body.nightmare-mode {
+    filter: invert() saturate(0);
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+
+    animation: pulsing-death 10s infinite 5s;
+    
+}
+
+body.nightmare-mode #header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-kerning: none;
+}
+
+@keyframes pulsing-death {
+    25% {
+        filter: saturate(9000) blur(1px);
+        transform: skew(0, 0);
+    }
+    50% {
+        filter: invert() saturate(100) brightness(10);
+        transform: skew(180deg, -180deg);
+    }75% {
+        filter: saturate(50) blur(1px);
+        transform: skew(0, 0);
+    }
+    100% {
+        filter: invert() saturate(200) contrast(1000);
+        transform: skew(-180deg, 180deg);
+        
+    }
+}
+
+@keyframes rainbow {
+    15% {
+        color: red;
+    }
+    30% {
+        color: orange;
+    }
+    45% {
+        color: yellow;
+    }
+    60% {
+        color: green;
+    }
+    75% {
+        color: blue;
+    }
+    90% {
+        color: purple;
+    }
+}
+
+#space-content {
+    width: 100dvw;
+    height: 100dvh;
+}
+
+#header {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    color: pink;
+    font-size: 5em;
+    text-align: center;
+    font-variant: small-caps;
+    text-shadow: 5px 5px 5px black;
+    animation: rainbow 5s infinite;
+    
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 5;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+#loader {
+    z-index: 6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    backdrop-filter: blur(50px);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 6em;
+}
+
+#player {
+    position: absolute;
+    z-index: 3;
+    height: 50px;
+    width: 50px;
+    top: calc(50vh - 50px);
+    transform: rotate(-90deg);
+    left: 0;
+}

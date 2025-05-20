@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>art projects</title>
+        <style>
+            @keyframes rainbow-bg {
+                33% {
+                    background-color: red;
+                }
+                66% {
+                    background-color: green;
+                }
+                99% {
+                    background-color: blue;
+                }
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                perspective: 100px;
+                overflow: hidden;
+                transform-style: preserve-3d;
+                background-color: aquamarine;
+                animation: rainbow-bg 10s linear;
+            }
+            #flip {
+                width: 100vw;
+                height: 100dvh;
+                background-color: black;
+                transition: 0.2s;
+                backface-visibility: visible;
+                transform-style: preserve-3d;
+            }
+            #flip.flipped {
+                transform: rotateX(180deg);
+            }
+            
+            #front, #back {
+                width: 100vw;
+                height: 100dvh;
+                position: absolute;
+            }
+            #front {
+                transform: translateZ(1px) scaleY(1);
+            }
+            #back {
+                transform: translateZ(-1px) scaleY(-1);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="flip" class="">
+            <img id="front" src="artprojects/bad-print-Bilinda.png">
+            <img id="back" src="artprojects/bikini-kill-bitmap.png">
+        </div>
+
+        <script type="text/javascript">
+            const flipper = document.getElementById("flip");
+            var isFlipping = false;
+            const images = [
+                "Again-Motion-Blur.png",
+                "Audrey-Soft-Airbrush.png",
+                "Baby Boyne.png",
+                "Bilinda LoFi.png",
+                "Billie-Engraved.jpg",
+                "Blue Bilinda.png",
+                "Blue-Foxtails-Airbrush.png",
+                "Charli-Halftone.png",
+                "Dither-Dylan.gif",
+                "Donut-with-icing.png",
+                "Donut&Countertop.png",
+                "Donut1.png",
+                "DonutWithSprinkles1.png",
+                "Gerard Photocopy Effect.png",
+                "Glow1.png",
+                "Grainy-Gradient.png",
+                "Hullabaloo.png",
+                "Kathleen-Hanna-Scan-Lines.png",
+                "Layer 0.png",
+                "long-sprinkle.png",
+                "monkey1.png",
+                "monkey2.png",
+                "Moon-Glow.png",
+                "RATS.png",
+                "Real footage of me driving.png",
+                "Screenshot 2024-12-11 111651.png",
+                "Screenshot 2024-12-19 111427.png",
+                "Screenshot 2025-04-15 104434.png",
+                "SKIN.png",
+                "Sophie-Grain-Heatmap.png",
+                "Sprinkles 11-26.png",
+                "Text-Bitmap.png",
+                "Untitled-1-Recovered (2).png",
+                "Untitled-3.png",
+                "VHS Black and White Faded.png",
+                "VHS Black and White.png",
+                "VHS Blue and White.png",
+                "VHS Pink.png",
+                "VHS Variant 1.png"
+            ]
+            var i = 0;
+            document.onclick = (e) => {
+                if (isFlipping) return;
+                isFlipping = true;
+                flipper.classList.toggle("flipped");
+                setTimeout(() => {
+                    updateImage(flipper.classList.contains("flipped"))
+                    isFlipping = false;
+                }, 200)
+            }
+
+            function updateImage(isFront) {
+                if (i >= images.length) {
+                    document.location.href = "/";
+                }
+                document.getElementById(isFront ? "front" : "back").src = "/artprojects/" + images[i];
+                i++;
+            }
+        </script>
+    </body>
+</html>
